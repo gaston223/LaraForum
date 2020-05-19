@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Discussion;
+use App\Http\Requests\CreateDiscussionRequest;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class DiscussionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function index()
     {
-        //
+        return view('discussions.index', [
+            'discussions' => Discussion::paginate(5)
+        ]);
     }
 
     /**
@@ -32,12 +44,20 @@ class DiscussionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
+     * @param CreateDiscussionRequest $request
+     * @return RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(CreateDiscussionRequest $request)
     {
-        //
+        auth()->user()->discussions()->create([
+          'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'content' =>$request->content,
+            'channel_id' =>$request->channel,
+        ]);
+
+        session()->flash('success' , 'Message ajouté !');
+        return redirect(route('discussion.index'));
     }
 
     /**

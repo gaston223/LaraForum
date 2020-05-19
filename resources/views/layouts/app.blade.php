@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+@yield('css')
     <!-- Bootstwatch -->
 {{--    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">--}}
     <script src="https://kit.fontawesome.com/3a35c19d1d.js" crossorigin="anonymous"></script>
@@ -99,5 +99,6 @@
             </main>
         @endauth
     </div>
+@yield('js')
 </body>
 </html>
