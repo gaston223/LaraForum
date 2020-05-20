@@ -7,7 +7,7 @@
         <div class="card-header"><h5>Ajouter une discussion</h5></div>
 
         <div class="card-body">
-            <form action="{{route('discussion.store')}}" method="post">
+            <form action="{{route('discussions.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="title">Titre</label>
@@ -30,7 +30,7 @@
                     </select>
                 </div>
 
-                <button class="btn btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Créer une discussion</button>
+                <button class="btn btn-success" type="submit"><i class="fa fa-plus"></i>&nbsp;Créer une discussion</button>
             </form>
         </div>
     </div>

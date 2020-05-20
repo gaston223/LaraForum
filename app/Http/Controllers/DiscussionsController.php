@@ -57,18 +57,18 @@ class DiscussionsController extends Controller
         ]);
 
         session()->flash('success' , 'Message ajouté !');
-        return redirect(route('discussion.index'));
+        return redirect(route('discussions.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Discussion $discussion
+     * @return Factory|View
      */
-    public function show($id)
+    public function show(Discussion $discussion)
     {
-        //
+        return view('discussions.show', ['discussion' => $discussion]);
     }
 
     /**
