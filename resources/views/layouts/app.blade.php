@@ -18,7 +18,11 @@
     <link href="{{asset('css/icons/fontawesome/styles.min.css')}}" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <style>
+        .btn-info{
+            color:#fff;
+        }
+    </style>
 @yield('css')
 </head>
 <body>
@@ -84,7 +88,7 @@
                                 Ajouter une discussion
                             </a>
                         @else
-                            <a href="{{route('login')}}" class="btn btn-info mb-2" style="color: #fff; width: 100%">
+                            <a href="{{route('login')}}" class="btn btn-info mb-2" style=" width: 100%">
                                 <i class="fa fa-sign-in"></i>&nbsp;
                                 Connectez-vous pour ajouter une discussion
                             </a>
