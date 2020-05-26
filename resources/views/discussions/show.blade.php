@@ -50,18 +50,17 @@
                             <span>{{$reply->owner->name}}</span>
                         </div>
                         <div>
-                            @if(auth()->user()->id === $discussion->user_id )
-                                <form action="{{route('discussions.best-reply',['discussion' =>$discussion->slug, 'reply' => $reply->id])}}" method="POST">
-                                    @csrf
-
-
-                                    <button type="submit" class="btn btn-sm btn-outline-success">
-                                        <i class="fa fa-thumbs-up"></i>&nbsp;
-                                        Marquer comme meilleure solution
-                                    </button>
-                                </form>
-
-                            @endif
+                            @auth
+                                @if(auth()->user()->id === $discussion->user_id )
+                                    <form action="{{route('discussions.best-reply',['discussion' =>$discussion->slug, 'reply' => $reply->id])}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-outline-success">
+                                            <i class="fa fa-thumbs-up"></i>&nbsp;
+                                            Marquer comme meilleure solution
+                                        </button>
+                                    </form>
+                                @endif
+                             @endauth
                         </div>
                     </div>
                 </div>
