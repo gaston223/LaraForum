@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Discussion;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -36,7 +35,7 @@ class NewReplyAdded extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail' ,'database'];
     }
 
     /**
