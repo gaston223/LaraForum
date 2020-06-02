@@ -16,6 +16,12 @@
                         </strong>
                             <a href="{{route('discussions.show', $notification->data['discussion']['slug'])}}" class="btn btn-sm btn-info float-right"><i class="fa fa-eye"></i> &nbsp; Voir la discussion</a>
                         @endif
+                            @if($notification->type === 'App\Notifications\ReplyMarkedAsBestReply')
+                                Votre réponse à la discussion  <strong> {{ $notification->data['discussion']['title']}}</strong>
+                                a été choisie comme meilleure réponse
+                                <a href="{{route('discussions.show', $notification->data['discussion']['slug'])}}" class="btn btn-sm btn-info float-right"><i class="fa fa-eye"></i> &nbsp; Voir la discussion</a>
+                            @endif
+
                     </li>
 
                 @endforeach
