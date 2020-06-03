@@ -109,7 +109,7 @@
                         @endauth
                         <div class="card">
                             <div class="card-header">
-                                Channels
+                               Salons
                             </div>
                             <div class="card-body">
                                 <ul class="list-group">
